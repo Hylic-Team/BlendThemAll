@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bqeau5pwcd4ei"]
+
+[ext_resource type="PackedScene" uid="uid://dj4640cnvxu62" path="res://assets/mob.glb" id="1_4are2"]
+[ext_resource type="Script" uid="uid://b64t3ynauyfde" path="res://scripts/mob.gd" id="1_bsing"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
+size = Vector3(2.08, 1, 2)
+
+[node name="Mob" type="CharacterBody3D" unique_id=899829271]
+script = ExtResource("1_bsing")
+arc_height = 15.0
+
+[node name="Node3D" type="Node3D" parent="." unique_id=1602516614]
+
+[node name="Enemy" parent="Node3D" unique_id=1983267338 instance=ExtResource("1_4are2")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=968299406]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_g4v7s")
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." unique_id=1108070710]
+aabb = AABB(-1, -1, -1.3, 2, 2, 3.6)

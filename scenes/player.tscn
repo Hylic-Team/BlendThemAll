@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://b33gnn16b4s8m"]
+
+[ext_resource type="PackedScene" uid="uid://bfvctbfhw2y45" path="res://assets/player.glb" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://b7e3ausfak4sf" path="res://scripts/player.gd" id="1_g2els"]
+[ext_resource type="PackedScene" uid="uid://c76k0kvyfxwl3" path="res://scenes/debt_gauge.tscn" id="3_dqkch"]
+[ext_resource type="Script" uid="uid://bdjs753uc5fob" path="res://scripts/hit_component.gd" id="3_qhqgy"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_g4v7s"]
+radius = 0.8
+
+[node name="Player" type="CharacterBody3D" unique_id=1469794344]
+script = ExtResource("1_g2els")
+
+[node name="Pivot" type="Node3D" parent="." unique_id=59120955]
+
+[node name="Character" parent="Pivot" unique_id=646494481 instance=ExtResource("1_3vyb7")]
+
+[node name="DebtGauge" parent="." unique_id=403534558 instance=ExtResource("3_dqkch")]
+max_time = 30.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2044189968]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7925657, 0)
+shape = SubResource("SphereShape3D_g4v7s")
+
+[node name="HitComponent" type="Area3D" parent="." unique_id=1814361075 node_paths=PackedStringArray("player")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.2)
+script = ExtResource("3_qhqgy")
+player = NodePath("..")
+radius = 1.25
+knockback_force = 20.0
+jump_knockback_force = 25.0
+jump_knockback_up = 6.0
+knockback_time = 0.2

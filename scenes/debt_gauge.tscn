@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://c76k0kvyfxwl3"]
+
+[ext_resource type="Script" uid="uid://cn5d7xw75jaqr" path="res://scripts/debt_gauge.gd" id="1_11law"]
+
+[node name="DebtGauge" type="Node3D" unique_id=403534558]
+script = ExtResource("1_11law")
+max_time = 5.0
